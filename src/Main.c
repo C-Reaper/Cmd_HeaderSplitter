@@ -9,8 +9,8 @@
 int main(int argc,const char *argv[]){
     HSplitter hs = HSplitter_New();
     
-    HSplitter_Load_H(&hs,"./code/Test.h");
-    HSplitter_Save_H(&hs,0U,"./code/Test2.h");
+    HSplitter_Load_H(&hs,"./code/Fixed.h");
+    HSplitter_Save_H(&hs,0U,"./code/Fixed2.h");
     
     //HSplitter_Load_H(&hs,"./code/Test.h");
     //HSplitter_Save_CH(&hs,"./inc","./lib");
