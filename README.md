@@ -1,193 +1,76 @@
-# Cmd_CMD
+# Project README
 
+## Overview
+This project is a C/C++ program that provides various functionalities related to fixed-point numbers. The main functionality includes parsing, converting, and manipulating fixed-point values in different precision levels (16-bit, 32-bit, 64-bit). It uses custom header files for each precision level and includes Makefiles for building the project on Linux, Windows, Wine, and WebAssembly.
 
-## Project Overview
+## Features
+- Parsing of fixed-point numbers from strings.
+- Conversion of fixed-point numbers to double precision floating point values.
+- Arithmetic operations (addition, subtraction, multiplication, division) on fixed-point numbers.
+- Support for different precision levels: 16-bit, 32-bit, and 64-bit.
 
-This project implements specialized functionality related to cmd.
+## Project Structure
+- `src/`
+  - `Main.c`          # Entry point of the program
+  - `Fixed16.h`       # Header file for 16-bit fixed-point operations
+  - `Fixed32.h`       # Header file for 32-bit fixed-point operations
+  - `Fixed64.h`       # Header file for 64-bit fixed-point operations
+- `Makefile.linux`    # Linux Build configuration
+- `Makefile.windows`  # Windows Build configuration
+- `Makefile.wine`     # Wine Build configuration
+- `Makefile.web`      # Emscripten Build configuration
+- `README.md`         # This file
 
-## Core Components
+## Build & Run
+To build and run the project, follow these steps:
 
-### Main Functionality
-- Implements core algorithms for cmd
-- Efficient data structures
-- Optimized performance
-- Clean code organization
+### Linux
+1. Open a terminal.
+2. Navigate to the project directory.
+3. Build the project using:
+   ```sh
+   make -f Makefile.linux all
+   ```
+4. Execute the program:
+   ```sh
+   ./build/Main
+   ```
 
-### Technical Features
-- C/C++ implementation
-- Dynamic memory management
-- Platform-independent design
-- Real-time capable
+### Windows
+1. Open a Command Prompt or PowerShell.
+2. Navigate to the project directory.
+3. Build the project using:
+   ```sh
+   mingw32-make -f Makefile.windows all
+   ```
+4. Execute the program:
+   ```sh
+   build\Main.exe
+   ```
 
-### Architecture
-- Module separation
-- Clear interface design
-- Proper abstraction layers
-- Extensible design
+### Wine
+1. Open a terminal on Linux.
+2. Navigate to the project directory.
+3. Build the project using:
+   ```sh
+   make -f Makefile.wine all
+   ```
+4. Execute the program:
+   ```sh
+   wine build/Main.exe
+   ```
 
-## Use Cases
-- Production systems
-- Educational purposes
-- Research applications
-- Performance-critical operations
+### WebAssembly (Emscripten)
+1. Ensure Emscripten is installed and configured.
+2. Open a terminal or Command Prompt.
+3. Navigate to the project directory.
+4. Build the project using:
+   ```sh
+   emmake make -f Makefile.web all
+   ```
+5. Run the WebAssembly file using `wasmtime`:
+   ```sh
+   wasmtime build/Main.wasm
+   ```
 
-## Performance Characteristics
-- Optimized algorithms
-- Efficient memory usage
-- Scalable architecture
-- Minimal overhead
-
-## Implementation Quality
-- Well-organized code
-- Meaningful naming
-- Proper error handling
-- Memory management
-
-## Build and Deployment
-- Standard C/C++ compilation
-- Makefile-based building
-- Cross-platform support
-- Easy integration
-
-
-## Building the Project
-
-### Prerequisites
-- C/C++ Compiler (GCC, Clang, or MSVC)
-- Make utility
-- Standard development tools
-
-### Build Steps
-
-1. Navigate to project directory:
-```bash
-cd Cmd_CMD
-```
-
-2. Build the project:
-```bash
-make -f Makefile.(os) all
-```
-
-3. For clean rebuild:
-```bash
-make -f Makefile.(os) clean
-make -f Makefile.(os) all
-```
-
-4. If there are ./bin and ./libs directories, build libs with:
-```bash
-make -f Makefile.(os) cleanlib
-make -f Makefile.(os) lib
-```
-
-### Build Options
-```bash
-make -f Makefile.(os) all         # build output
-make -f Makefile.(os) do        # build + exe output
-make -f Makefile.(os) clean   # Remove build artifacts
-```
-
-## Running the Project
-
-Execute the compiled binary:
-
-```bash
-./build/Main(.exe)
-```
-
-Or using make:
-```bash
-make -f Makefile.(os) exe
-```
-
-## Project Organization
-
-```
-Cmd_CMD/
-├── src/
-│   ├── Main.c          # Entry point
-│   └── *.c             # Implementation files
-├── Makefile            # Build configuration
-└── README.md           # This file
-```
-
-## Technical Details
-
-### Language: C/C++
-- Performance-oriented
-- Direct hardware access where needed
-- Memory efficient
-- Widely portable
-
-### Key Technologies
-- Standard C library
-- System-specific libraries as needed
-- Algorithm optimization
-- Efficient data structures
-
-### Code Quality
-- Clean, readable implementation
-- Proper error handling
-- Resource management
-- Well-documented algorithms
-
-## Development Notes
-
-### Architecture Decisions
-- Modular design for reusability
-- Efficient algorithms for performance
-- Clear separation of concerns
-- Extensible structure
-
-### Performance Optimizations
-- Algorithm efficiency
-- Memory layout optimization
-- Cache-conscious programming
-- Minimal overhead
-
-### Portability
-- Cross-platform compatible
-- Platform-specific optimizations where possible
-- Standard library usage
-- No external dependencies (where feasible)
-
-## Troubleshooting
-
-### Build Issues
-- Ensure compiler is installed
-- Check file paths and permissions
-- Verify Make installation
-- Review compiler error messages
-
-### Runtime Issues
-- Check input data validity
-- Verify file accessibility
-- Ensure sufficient memory
-- Review output format
-
-### Performance Issues
-- Check compiler optimization flags
-- Profile hot code paths
-- Review algorithm complexity
-- Consider input size
-
-## Future Improvements
-
-Potential enhancements:
-- Additional optimization opportunities
-- Extended functionality
-- Platform-specific optimizations
-- Performance profiling
-
-## References
-
-For technical background:
-- Algorithm textbooks
-- Computer science references
-- Language documentation
-- Online educational resources
-
----
-
-*Project implementing practical algorithms and data structures in C/C++*
+These steps will allow you to build and run the project on different platforms, providing a clear understanding of how to interact with and utilize the fixed-point number functionalities in the program.
